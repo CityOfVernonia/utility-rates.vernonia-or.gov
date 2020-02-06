@@ -1,0 +1,62 @@
+title: City of Vernonia Utility Rates
+
+email: cityhall@vernonia-or.gov
+
+description: >-
+  The City of Vernonia is committed to providing our ratepayers with simple, fair and budget driven water and sewer utility rates.
+
+baseurl: ""
+
+url: ""
+
+permalink: pretty
+
+highlighter: rouge
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+  auto_ids: false
+  auto_id_stripping: true
+
+timezone: America/Los_Angeles
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/social-card.jpg
+
+include:
+  - _headers
+  - _redirects
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

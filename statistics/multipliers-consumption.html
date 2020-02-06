@@ -1,0 +1,29 @@
+---
+layout: default
+
+menu: false
+
+title: Multiplier &amp; Consumption Statistics
+
+description: Multiplier &amp; Consumption Statistics
+---
+<h1>Multiplier &amp; Consumption Statistics</h1>
+
+<p>The following charts show multipliers and consumption by month for water and sewer, as well as a chart directly comparing water and sewer consumption.</p>
+
+<p><strong>Count Multipliers</strong> are the number of billed multipliers.</p>
+
+<p><strong>Revenue Multipliers</strong> are calculated by dividing the base rate revenue for the month by the base rate. Revenue multipliers are more accurate for calculating base rates as this number accounts for partial month bills, and water services switching customers mid-month.</p>
+
+<p><strong>Consumption</strong> is billed consumption in 1000s gallons.</p>
+
+<canvas class="chart" data-chart-water></canvas>
+
+<p class="text-muted"><small><strong>Note:</strong> Water revenue multipliers prior to August 2018 are not correct due to changes made to the rate structure effective at the start of the 2018-2019 fiscal year.</small></p>
+
+<canvas class="chart" data-chart-sewer></canvas>
+
+<canvas class="chart" data-chart-consumption></canvas>
+
+<script src="/js/charts-main.js"></script>
+<script src="/statistics/multipliers-consumption.js"></script>

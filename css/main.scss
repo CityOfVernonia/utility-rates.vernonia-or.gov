@@ -1,0 +1,190 @@
+---
+# front matter
+---
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #F8F5F0 !default;
+$gray-300: #DFD7CA !default;
+$gray-400: #ced4da !default;
+$gray-500: #98978B !default;
+$gray-600: #8E8C84 !default;
+$gray-700: #495057 !default;
+$gray-800: #3E3F3A !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #325D88 !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #d9534f !default;
+$orange:  #F47C3C !default;
+$yellow:  #ffc107 !default;
+$green:   #93C54B !default;
+$teal:    #20c997 !default;
+$cyan:    #29ABE0 !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $orange !default;
+$danger:        $red !default;
+$light:         $gray-200 !default;
+$dark:          $gray-800 !default;
+
+@import '/css/bootstrap.min.css';
+
+////////////
+// layout //
+////////////
+// override heading margin
+h1 {
+	margin-bottom: 1.5rem;
+}
+h2, h3, h4, h5, h6 {
+  margin-bottom: 0.75rem;
+}
+// h2 is the menu item heading
+h2 {
+  margin-top: 3rem;
+}
+
+// add some space above/below content
+main.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+// table overrides
+.table {
+  font-size: 0.75rem;
+  th, td {
+    padding: 0.25rem;
+  }
+}
+
+// flex helpers
+.flex-center {
+  align-items: center;
+}
+
+// sticky list groups
+// or anything else that needs to stick
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 1rem;
+}
+
+// make font awesome lists cooler
+.fa-ul {
+  li {
+    margin: 0.75rem 0;
+    display: flex;
+    align-items: center;
+  }
+  .fa-li {
+    font-size: 1.1rem;
+  }
+}
+
+////////////
+// footer //
+////////////
+footer.footer {
+  margin-top: 4em;
+	margin-bottom: 2em;
+	
+  .copyright {
+    text-align: center;
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+	}
+	.fa-coffee {
+		color: #be9969;
+	}
+}
+
+/////////
+// 404 //
+/////////
+.not-found {
+	margin: 3rem 0;
+	text-align: center;
+
+	h1 {
+		font-size: 3rem;
+	}
+}
+
+/*  Bootstrap Clearfix */
+/*  Tablet  */
+@media (min-width:767px){
+  /* Column clear fix */
+  .col-lg-1:nth-child(12n+1),
+  .col-lg-2:nth-child(6n+1),
+  .col-lg-3:nth-child(4n+1),
+  .col-lg-4:nth-child(3n+1),
+  .col-lg-6:nth-child(2n+1),
+  .col-md-1:nth-child(12n+1),
+  .col-md-2:nth-child(6n+1),
+  .col-md-3:nth-child(4n+1),
+  .col-md-4:nth-child(3n+1),
+  .col-md-6:nth-child(2n+1){
+    clear: none;
+  }
+  .col-sm-1:nth-child(12n+1),
+  .col-sm-2:nth-child(6n+1),
+  .col-sm-3:nth-child(4n+1),
+  .col-sm-4:nth-child(3n+1),
+  .col-sm-6:nth-child(2n+1){
+    clear: left;
+  }
+}
+/*  Medium Desktop  */
+@media (min-width:992px){
+  /* Column clear fix */
+  .col-lg-1:nth-child(12n+1),
+  .col-lg-2:nth-child(6n+1),
+  .col-lg-3:nth-child(4n+1),
+  .col-lg-4:nth-child(3n+1),
+  .col-lg-6:nth-child(2n+1),
+  .col-sm-1:nth-child(12n+1),
+  .col-sm-2:nth-child(6n+1),
+  .col-sm-3:nth-child(4n+1),
+  .col-sm-4:nth-child(3n+1),
+  .col-sm-6:nth-child(2n+1){
+    clear: none;
+  }
+  .col-md-1:nth-child(12n+1),
+  .col-md-2:nth-child(6n+1),
+  .col-md-3:nth-child(4n+1),
+  .col-md-4:nth-child(3n+1),
+  .col-md-6:nth-child(2n+1){
+    clear: left;
+  }
+}
+/*  Large Desktop  */
+@media (min-width:1200px){
+  /* Column clear fix */
+  .col-md-1:nth-child(12n+1),
+  .col-md-2:nth-child(6n+1),
+  .col-md-3:nth-child(4n+1),
+  .col-md-4:nth-child(3n+1),
+  .col-md-6:nth-child(2n+1),
+  .col-sm-1:nth-child(12n+1),
+  .col-sm-2:nth-child(6n+1),
+  .col-sm-3:nth-child(4n+1),
+  .col-sm-4:nth-child(3n+1),
+  .col-sm-6:nth-child(2n+1){
+    clear: none;
+  }
+  .col-lg-1:nth-child(12n+1),
+  .col-lg-2:nth-child(6n+1),
+  .col-lg-3:nth-child(4n+1),
+  .col-lg-4:nth-child(3n+1),
+  .col-lg-6:nth-child(2n+1){
+    clear: left;
+  }
+}

@@ -1,0 +1,36 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- icons, theme and seo tags -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <meta name="theme-color" content="#3E3F3A">
+  {%- seo -%}
+  
+  <!-- analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123980059-3"></script>
+  <script async src="/js/analytics.js"></script>
+
+  <!-- sticky polyfill -->
+  {%- if page.menu != false -%}
+  <script src="https://cdn.jsdelivr.net/npm/stickyfilljs@2.1.0/dist/stickyfill.min.js" integrity="sha256-Duz0kSQfOd2hKIZtlmd8xYuqQlAKEEJnSPYYSfLarVQ=" crossorigin="anonymous"></script>
+  {%- endif -%}
+  
+  <!-- polyfills -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CElement.prototype.append%2Cfetch" crossorigin="anonymous"></script>
+
+  <!-- charting libs (must load in head for inline scripts) -->
+  {%- if page.charts != false -%}
+  <script src="/js/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" integrity="sha384-hgC0yc+QMVhcTBNqkVKR6PRjtrYzFXY+6kgKAUXxy+uhu/DT+NORQ21+AMcECh43" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0" integrity="sha384-tBTUH+7QuzOjHWS7S0B93DphPyInt8kw90bDGxeCrJ5VWmWRgw4oK8n/9vykQQnN" crossorigin="anonymous"></script>
+  {%- endif -%}
+
+  <!-- font awesome and main css -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css">
+</head>

@@ -1,0 +1,30 @@
+items:
+  - title: "Calculators"
+    id: "calculators"
+    subitems:
+      - page: "Utility Bill Calculator"
+        url: "/calculators/utility-bill/"
+      - page: "Rate Calculator"
+        url: "/calculators/rates/"
+
+  - title: "Rate Performance"
+    id: "rate-performance"
+    subitems:
+      - page: "Fiscal Year 2019-2020"
+        url: "/rate-performance/2019-2020/"
+      - page: "Fiscal Year 2018-2019"
+        url: "/rate-performance/2018-2019/"
+      - page: "Fiscal Year 2017-2018"
+        url: "/rate-performance/2017-2018/"
+
+  - title: "Statistics"
+    id: "statistics"
+    subitems:
+      - page: "Multipliers &amp; Consumption"
+        url: "/statistics/multipliers-consumption/"
+      - page: "Water Services"
+        url: "/statistics/water-services/"
+      - page: "Sewer Services"
+        url: "/statistics/sewer-services/"
+      - page: "Meter EOL"
+        url: "/statistics/meter-eol/"

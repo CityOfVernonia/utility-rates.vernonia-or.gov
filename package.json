@@ -1,0 +1,15 @@
+{
+  "name": "utility-rates.vernonia-or.gov",
+  "version": "1.0.0",
+  "description": "All about Vernonia's water and sewer utility rates.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CityOfVernonia/utility-rates.vernonia-or.gov.git"
+  },
+  "author": "City of Vernonia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CityOfVernonia/utility-rates.vernonia-or.gov/issues"
+  },
+  "homepage": "https://github.com/CityOfVernonia/utility-rates.vernonia-or.gov#readme"
+}
