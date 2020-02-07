@@ -89,6 +89,13 @@ main.container {
   }
 }
 
+// utility bill results
+div[data-bill-results] {
+  p {
+    font-weight: 500;
+  }
+}
+
 ////////////
 // footer //
 ////////////

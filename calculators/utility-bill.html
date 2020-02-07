@@ -8,9 +8,8 @@ menu: false
 
 <div class="row">
   <div class="col-sm-6 col-lg-4">
-    <form data-bill-calculator>
-
-      <!-- form -->
+    <!-- form -->
+    <form data-bill-calculator>      
       <div class="form-group">
         <label for="meterSize">Meter Size</label>
         <select class="form-control" id="meterSize" name="size">
@@ -33,12 +32,12 @@ menu: false
         <small id="sewerConsumptionHelp" class="form-text text-muted">Winter average (Nov-Feb) water consumption.</small>
       </div>
       <div class="form-group">
-        <label for="resUnits">Total Residential and Commercial Units</label>
-        <input type="number" class="form-control" id="resUnits" aria-describedby="resUnitsHelp" name="resunits" placeholder="Sewer consumption in gallons" value="1" step="1" min="0" max="50" required>
-        <small id="resUnitsHelp" class="form-text text-muted">$2.00 parks fee per unit except gov't and non-profit.</small>
+        <label for="parkUnits">Number of Billable Park Units</label>
+        <input type="number" class="form-control" id="parkUnits" aria-describedby="parkUnitsHelp" name="parkunits" placeholder="Number of billable park units" value="1" step="1" min="0" max="50" required>
+        <small id="parkUnitsHelp" class="form-text text-muted">$2.00 parks fee per unit except gov't and non-profit.</small>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Calculate</button>
+        <button type="submit" class="btn btn-primary calc-bill-submit">Calculate</button>
       </div>
     </form>
   </div>
@@ -50,8 +49,11 @@ menu: false
     <p>Sewer Base: $0</p>
     <p>Sewer Consumption: $0</p>
     <p>Sewer Loan: $0</p>
-    <p style="border-bottom:1px solid #98978B; padding-bottom: 1rem;">Parks: $2</p>
+    <p style="border-bottom:1px solid #98978B; padding-bottom: 1rem;">Parks: $0</p>
     <p>Total: $0</p>
+  </div>
+  <div class="col-sm-6 col-lg-4">
+    <canvas class="chart" data-bill-chart></canvas>
   </div>
 </div>
 

@@ -33,6 +33,8 @@
     silver: '#dddddd'
   };
 
+  c.currentFiscalYear = '2019';
+
   // meter multipliers [decimal, text, water, sewer]
   c.multipliers = [
     [0.75, '3/4"', 1, 1],
@@ -51,7 +53,8 @@
       wLoan: 9.80,
       sBase: 26.90,
       sCon: 2.60,
-      sLoan: 22.50
+      sLoan: 22.50,
+      parks: 2.00
     },
     '2018': {
       wBase: 29.50,
@@ -59,7 +62,8 @@
       wLoan: 9.80,
       sBase: 26.90,
       sCon: 2.60,
-      sLoan: 22.50
+      sLoan: 22.50,
+      parks: 2.00
     },
     '2017': {
       wBase: 29.50,
@@ -67,7 +71,8 @@
       wLoan: 9.80,
       sBase: 26.90,
       sCon: 2.60,
-      sLoan: 22.50
+      sLoan: 22.50,
+      parks: 2.00
     }
   };
 
