@@ -5,8 +5,11 @@
   const color = Chart.helpers.color;
   const colors = chartData.colors;
 
-  // required revenue
+  // required revenue and rates
   const requiredRevenue = chartData.requiredRevenue[fiscalYear];
+  const rates = chartData.rates[fiscalYear];
+  const multipliers = chartData.multipliers;
+  const rateTableRows = [];
 
   document.querySelector('*[data-required-revenue]').innerHTML = `
     <td class="text-center">$${requiredRevenue.wBase.toLocaleString()}</td>
@@ -16,6 +19,23 @@
     <td class="text-center">$${requiredRevenue.sCon.toLocaleString()}</td>
     <td class="text-center">$${requiredRevenue.sLoan.toLocaleString()}</td>
   `;
+
+  multipliers.forEach(m => {
+    const size = m[1];
+    const waterMultiplier = m[2];
+    const sewerMultiplier = m[3];
+    const waterBase = (rates.wBase * waterMultiplier).toFixed(2);
+    const waterConsumption = rates.wCon.toFixed(2);
+    const waterLoan = (rates.wLoan * waterMultiplier).toFixed(2);
+    const sewerBase = (rates.sBase * sewerMultiplier).toFixed(2);
+    const sewerConsumption = rates.sCon.toFixed(2);
+    const sewerLoan = (rates.sLoan * sewerMultiplier).toFixed(2);
+    rateTableRows.push(
+      `<tr><td>${size}</td><td>${waterMultiplier}</td><td>$${waterBase}</td><td>$${waterLoan}</td><td>$${waterConsumption}/1000</td><td>${sewerMultiplier}</td><td>$${sewerBase}</td><td>$${sewerLoan}</td><td>$${sewerConsumption}/1000</td></tr>`
+    );
+  });
+
+  document.querySelector('*[data-rates]').innerHTML = rateTableRows.join('');
 
   // get data
   chartData.getData()

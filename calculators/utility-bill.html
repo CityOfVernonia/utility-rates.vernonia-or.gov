@@ -1,0 +1,59 @@
+---
+layout: default
+menu: false
+---
+<h1 data-fiscal-year="2019">Utility Bill Calculator</h1>
+
+<p>Select meter size, enter monthly water and sewer consumption, and number of residential units to calculate monthly utility bill.</p>
+
+<div class="row">
+  <div class="col-sm-6 col-lg-4">
+    <form data-bill-calculator>
+
+      <!-- form -->
+      <div class="form-group">
+        <label for="meterSize">Meter Size</label>
+        <select class="form-control" id="meterSize" name="size">
+          <option value="0.75" selected>3/4"</option>
+          <option value="1">1"</option>
+          <option value="1.5">1 1/2"</option>
+          <option value="2">2"</option>
+          <option value="3">3"</option>
+          <option value="4">4"</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="waterConsumption">Monthly Water Consumption</label>
+        <input type="number" class="form-control" id="waterConsumption" aria-describedby="waterConsumptionHelp" name="water" placeholder="Water consumption in gallons" value="4700" step="1" min="100" required>
+        <small id="waterConsumptionHelp" class="form-text text-muted">3/4" meter customers average 4700 gallons of water per month over a year.</small>
+      </div>
+      <div class="form-group">
+        <label for="sewerConsumption">Monthly Sewer Consumption</label>
+        <input type="number" class="form-control" id="sewerConsumption" aria-describedby="sewerConsumptionHelp" name="sewer" placeholder="Sewer consumption in gallons" value="4700" step="1" min="100" required>
+        <small id="sewerConsumptionHelp" class="form-text text-muted">Winter average (Nov-Feb) water consumption.</small>
+      </div>
+      <div class="form-group">
+        <label for="resUnits">Total Residential and Commercial Units</label>
+        <input type="number" class="form-control" id="resUnits" aria-describedby="resUnitsHelp" name="resunits" placeholder="Sewer consumption in gallons" value="1" step="1" min="0" max="50" required>
+        <small id="resUnitsHelp" class="form-text text-muted">$2.00 parks fee per unit except gov't and non-profit.</small>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-6 col-lg-4" data-bill-results>
+    <p>Water Base: $0</p>
+    <p>Water Consumption: $0</p>
+    <p>Water Loan: $0</p>
+    <p>Sewer Base: $0</p>
+    <p>Sewer Consumption: $0</p>
+    <p>Sewer Loan: $0</p>
+    <p style="border-bottom:1px solid #98978B; padding-bottom: 1rem;">Parks: $2</p>
+    <p>Total: $0</p>
+  </div>
+</div>
+
+<script src="/js/charts-main.js"></script>
+<script src="/calculators/utility-bill.js"></script>

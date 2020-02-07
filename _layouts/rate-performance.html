@@ -1,10 +1,7 @@
 ---
 layout: default
-permalink: /rate-performance/2018-2019/
-title: Fiscal Year 2018-2019 Rate Performance
-description: Fiscal Year 2018-2019 Rate Performance
 ---
-<h1 data-fiscal-year="2018">Fiscal Year 2018-2019 Rate Performance</h1>
+<h1 data-fiscal-year="{{ page.fiscal }}">Fiscal Year {{ page.fiscalText }} Rate Performance</h1>
 
 <h2>Required Revenue</h2>
 
@@ -28,7 +25,13 @@ description: Fiscal Year 2018-2019 Rate Performance
 
 <h2>Utility Rates</h2>
 
-{%- include rates-2019.html -%}
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr><th>&nbsp;</th><th colspan="4" class="text-center">Water</th><th colspan="4" class="text-center">Sewer</th></tr>
+    <tr><th>&nbsp;</th><th>Multiplier</th><th>Base</th><th>Loan</th><th>Consumption</th><th>Multiplier</th><th>Base</th><th>Loan</th><th>Consumption</th></tr>
+  </thead>
+  <tbody data-rates></tbody>
+</table>
 
 <h2>Water Rate Performance</h2>
 
@@ -42,7 +45,9 @@ description: Fiscal Year 2018-2019 Rate Performance
 
 <canvas class="chart" data-chart-water-accumulative></canvas>
 
-<p class="text-muted"><small><strong>Note:</strong> The water loan rate for this fiscal year is artificially low to account for additional loan revenue from years past. The City now takes any additional loan revenue from the previous year into account when setting next year's water loan rate.</small></p>
+{%- if page.waterAccumulativeNote -%}
+<p class="text-muted"><small><strong>Note:</strong> {{ page.waterAccumulativeNote }}</small></p>
+{%- endif -%}
 
 <canvas class="chart" data-chart-water-split></canvas>
 
@@ -56,7 +61,7 @@ description: Fiscal Year 2018-2019 Rate Performance
 
 <p class="text-muted"><small><strong data-water-consumption>0</strong> gallons of billed water consumption up to the current month of the fiscal year.</small></p>
 
-<p class="text-muted"><small>See <a href="/statistics/multipliers-consumption/">Multiplier &amp; Consumption Statistics</a> for more information about these statistics.</small></p>
+<p class="text-muted"><small>See <a href="/statistics/multipliers-consumption/">Multiplier &amp; Consumption Statistics</a> for more information about these statistics and long term trends.</small></p>
 
 <h2>Sewer Rate Performance</h2>
 

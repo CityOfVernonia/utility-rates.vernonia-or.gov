@@ -1,0 +1,12 @@
+---
+layout: rate-performance
+permalink: /rate-performance/2017-2018/
+title: Fiscal Year 2017-2018 Rate Performance
+description: Fiscal Year 2017-2018 Rate Performance
+
+# rate performance page vars
+fiscal: 2017
+fiscalText: 2017-2018
+
+waterAccumulativeNote: "The water loan rate for this fiscal year is artificially low to account for additional loan revenue from years past. The City now takes any additional loan revenue from the previous year into account when setting next year's water loan rate."
+---

@@ -33,14 +33,42 @@
     silver: '#dddddd'
   };
 
-  // meter multipliers [water, sewer]
-  c.multipliers = {
-    '0.75': [1, 1],
-    '1': [1.4, 1.67],
-    '1.5': [1.8, 3.33],
-    '2': [2.9, 5.33],
-    '3': [11, 10],
-    '4': [14, 16.67]
+  // meter multipliers [decimal, text, water, sewer]
+  c.multipliers = [
+    [0.75, '3/4"', 1, 1],
+    [1, '1"', 1.4, 1.67],
+    [1.5, '1 1/2"', 1.8, 3.33],
+    [2, '2"', 2.9, 5.33],
+    [3, '3"', 11, 10],
+    [4, '4"', 14, 16.67]
+  ];
+
+  // rates
+  c.rates = {
+    '2019': {
+      wBase: 29.50,
+      wCon: 1.80,
+      wLoan: 9.80,
+      sBase: 26.90,
+      sCon: 2.60,
+      sLoan: 22.50
+    },
+    '2018': {
+      wBase: 29.50,
+      wCon: 1.80,
+      wLoan: 9.80,
+      sBase: 26.90,
+      sCon: 2.60,
+      sLoan: 22.50
+    },
+    '2017': {
+      wBase: 29.50,
+      wCon: 1.80,
+      wLoan: 9.80,
+      sBase: 26.90,
+      sCon: 2.60,
+      sLoan: 22.50
+    }
   };
 
   // required revenue by fiscal year
