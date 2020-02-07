@@ -3,6 +3,8 @@
  */
 (function (document, chartData, Chart, ChartDataLabels) {
 
+  let chart;
+
   const colors = chartData.colors;
 
   const multipliers = chartData.multipliers.reduce((map, obj) => {
@@ -16,6 +18,10 @@
 
   form.addEventListener('submit', evt => {
     evt.preventDefault();
+
+    if (chart) {
+      chart.destroy();
+    }
 
     const t = evt.target;
     const waterMultiplier = multipliers[t.size.value][0];
@@ -48,7 +54,7 @@
       <p>Total: $${total.toFixed(2)}</p>
     `;
 
-    new Chart(document.querySelector('canvas[data-bill-chart]').getContext('2d'), {
+    chart = new Chart(document.querySelector('canvas[data-bill-chart]').getContext('2d'), {
       type: 'doughnut',
       plugins: [ChartDataLabels],
       options: {
@@ -59,7 +65,7 @@
         },
         title: {
 					display: true,
-					text: 'Utility Bill Breakdown'
+					text: `Utility Bill - $${total.toFixed(2)}`
         },
         tooltips: {
           mode: 'index',
