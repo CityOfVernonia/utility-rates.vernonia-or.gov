@@ -30,6 +30,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0" integrity="sha384-tBTUH+7QuzOjHWS7S0B93DphPyInt8kw90bDGxeCrJ5VWmWRgw4oK8n/9vykQQnN" crossorigin="anonymous"></script>
   {%- endif -%}
 
+  <!-- arcgis rest -->
+  {%- if page.arcgis -%}
+  <script src="https://unpkg.com/@esri/arcgis-rest-request@2.8.0/dist/umd/request.umd.min.js" integrity="sha384-vydU/QCYeopeDjkMfn8wfT46Jh6SNQXnkQrce56KmNnVWw3fxQeHmJg9gq4BPBEN" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@2.8.0/dist/umd/feature-layer.umd.min.js" integrity="sha384-84v0G5+q5XZXXUmUkFZ2Ccj4foAQHwOFibPmHjIu7TL2QM6BsQDmUb3ly7zxJR6g" crossorigin="anonymous"></script>
+  {%- endif -%}
+
   <!-- font awesome and main css -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css">

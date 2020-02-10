@@ -1,7 +1,7 @@
 /**
  * Main js for all data and charting
  */
-(function (window, Papa, moment, Chart, ChartDataLabels) {
+(function (window, Papa, moment, Chart, ChartDataLabels, arcgisRest) {
   if (Chart) {
     // Charts defaults
     Chart.plugins.unregister(ChartDataLabels);
@@ -234,7 +234,6 @@
     return arr.reduce((p, c) => p + parseFloat(c), 0);
   };
 
-
   // formatters
   // axis dollar ticks
   am.$ticks = value => {
@@ -246,4 +245,16 @@
     return data.datasets[item.datasetIndex].label + ': $' + Number(item.value).toLocaleString();
   }
 
-}(this, this.Papa, this.moment, this.Chart, this.ChartDataLabels));
+
+  // services stats
+  const restUrl = 'https://gisportal.vernonia-or.gov/arcgis/rest/services/PublicUtilities/Public_Water/FeatureServer/52';
+
+  am.getServicesData = (params) => {
+    return arcgisRest.queryFeatures(Object.assign({
+      url: restUrl,
+      returnGeometry: false
+    }, params))
+  };
+  
+
+}(this, this.Papa, this.moment, this.Chart, this.ChartDataLabels, this.arcgisRest));
