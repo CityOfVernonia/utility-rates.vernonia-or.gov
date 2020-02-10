@@ -1,7 +1,7 @@
 /**
  * Calculate a utility bill
  */
-(function (document, dataMain, Chart, ChartDataLabels) {
+(function (document, appMain, Chart, ChartDataLabels) {
 
   let chart;
 
@@ -124,4 +124,4 @@
 
   // submit form for default bill and chart
   document.querySelector('.calc-bill-submit').click();
-}(this.document, this.dataMain, this.Chart, this.ChartDataLabels));
+}(this.document, this.appMain, this.Chart, this.ChartDataLabels));
