@@ -1,5 +1,5 @@
 /**
- * Chart defaults and common for all charting
+ * Main js for all data and charting
  */
 (function (window, Papa, moment, Chart, ChartDataLabels) {
   if (Chart) {
@@ -10,10 +10,10 @@
   }
 
   // gloabl data object
-  const c = window.chartData = {};
+  const am = window.appMain = {};
 
   // colors
-  c.colors = {
+  am.colors = {
     aqua: '#7fdbff',
     blue: '#325D88', //
     lime: '#01ff70',
@@ -33,10 +33,12 @@
     silver: '#dddddd'
   };
 
-  c.currentFiscalYear = '2019';
+  am.currentFiscalYear = '2019';
+
+  am.currentSconYear = '2019';
 
   // meter multipliers [decimal, text, water, sewer]
-  c.multipliers = [
+  am.multipliers = [
     [0.75, '3/4"', 1, 1],
     [1, '1"', 1.4, 1.67],
     [1.5, '1 1/2"', 1.8, 3.33],
@@ -46,7 +48,7 @@
   ];
 
   // rates
-  c.rates = {
+  am.rates = {
     '2019': {
       wBase: 29.50,
       wCon: 1.80,
@@ -57,27 +59,27 @@
       parks: 2.00
     },
     '2018': {
-      wBase: 29.50,
-      wCon: 1.80,
-      wLoan: 9.80,
-      sBase: 26.90,
-      sCon: 2.60,
-      sLoan: 22.50,
+      wBase: 30.70,
+      wCon: 1.8,
+      wLoan: 9.5,
+      sBase: 26.65,
+      sCon: 2.45,
+      sLoan: 44.75,
       parks: 2.00
     },
     '2017': {
-      wBase: 29.50,
-      wCon: 1.80,
-      wLoan: 9.80,
-      sBase: 26.90,
-      sCon: 2.60,
-      sLoan: 22.50,
+      wBase: 29.3,
+      wCon: 3,
+      wLoan: 9.5,
+      sBase: 23.95,
+      sCon: 2.31,
+      sLoan: 55.27,
       parks: 2.00
     }
   };
 
   // required revenue by fiscal year
-  c.requiredRevenue = {
+  am.requiredRevenue = {
     '2019': {
       wBase: 373567,
       wCon: 111585,
@@ -106,7 +108,7 @@
 
   // fetch csv data and convert to json
   // @returns array of fullfilled promises
-  c.getData = () => {
+  am.getData = () => {
     return Promise.all([
       '/csv/water-sewer-stats.csv'
     ].map(url => {
@@ -123,28 +125,28 @@
   };
 
   // filter data by calendar year
-  c.filterYear = (data, year) => {
+  am.filterYear = (data, year) => {
     return data.filter(d => {
       return d.year === year;
     });
   };
 
   // filter data by fiscal year
-  c.filterFiscalYear = (data, fiscalYear) => {
+  am.filterFiscalYear = (data, fiscalYear) => {
     return data.filter(d => {
       return d.fiscalYear === fiscalYear;
     });
   };
 
   // filter data by sewer consumption year
-  c.filterSconYear = (data, sconYear) => {
+  am.filterSconYear = (data, sconYear) => {
     return data.filter(d => {
       return d.sconYear === sconYear;
     });
   };
 
   // return the YYYY-MM labels array
-  c.getMonthLabels = data => {
+  am.getMonthLabels = data => {
     return data.map(d => {
       return moment({
         year: d.year,
@@ -153,20 +155,39 @@
     });
   };
 
+  am.getSconYearOfLabels = () => {
+    return [3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2].map(m => {
+      return moment({
+        month: m
+      }).format('MMM');
+    });
+  };
+
   // return array of field values
-  c.getFieldData = (data, field, divisor) => {
+  am.getFieldData = (data, field, divisor) => {
     return data.map(d => {
       return d[field] / (divisor || 1);
     });
   };
 
   // return sum of field
-  c.sumField = (data, field) => {
+  am.sumField = (data, field) => {
     let sum = 0;
     data.forEach(d => {
       sum = sum + parseFloat(d[field]);
     });
     return sum;
+  };
+
+  // return array of unique valeus
+  am.uniqueValues = (data, field) => {
+    const r = [];
+    data.forEach(d => {
+      if (r.indexOf(d[field]) === -1) {
+        r.push(d[field]);
+      }
+    });
+    return r;
   };
 
   /**
@@ -177,7 +198,7 @@
    * @param divisor Number (optional) - number to divide the value by when accumulating (12 by default for months)
    * @returns Number[]
    */
-  c.valueAccumulativeArray = (value, length, integer, divisor) => {
+  am.valueAccumulativeArray = (value, length, integer, divisor) => {
     const r = [];
     let counter = 0;
     const one = value / (divisor || 12);
@@ -189,7 +210,7 @@
     return r;
   };
 
-  c.accumulativeArray = (values, integer) => {
+  am.accumulativeArray = (values, integer) => {
     const r = [];
     values.reduce((acc, value) => {
       const v = acc + value;
@@ -199,29 +220,29 @@
     return r;
   };
 
-  c.subtractArrays = (one, two) => {
+  am.subtractArrays = (one, two) => {
     return one.map((r, idx) => {
       return r - two[idx];
     });
   };
 
-  c.averageArray = arr => {
+  am.averageArray = arr => {
     return arr.reduce((p, c) => p + parseFloat(c), 0) / arr.length;
   };
 
-  c.sumArray = arr => {
+  am.sumArray = arr => {
     return arr.reduce((p, c) => p + parseFloat(c), 0);
   };
 
 
   // formatters
   // axis dollar ticks
-  c.$ticks = value => {
+  am.$ticks = value => {
     return '$' + value.toLocaleString();
   };
 
   // tooltip dollar
-  c.$tooltipLabel = (item, data) => {
+  am.$tooltipLabel = (item, data) => {
     return data.datasets[item.datasetIndex].label + ': $' + Number(item.value).toLocaleString();
   }
 

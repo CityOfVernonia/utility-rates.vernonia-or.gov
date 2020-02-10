@@ -1,14 +1,14 @@
-(function (document, chartData, Chart, ChartDataLabels) {
+(function (document, dataMain, Chart, ChartDataLabels) {
   const fiscalYear = document.querySelector('h1[data-fiscal-year]').getAttribute('data-fiscal-year');
 
   // colors for charts
   const color = Chart.helpers.color;
-  const colors = chartData.colors;
+  const colors = appMain.colors;
 
   // required revenue and rates
-  const requiredRevenue = chartData.requiredRevenue[fiscalYear];
-  const rates = chartData.rates[fiscalYear];
-  const multipliers = chartData.multipliers;
+  const requiredRevenue = appMain.requiredRevenue[fiscalYear];
+  const rates = appMain.rates[fiscalYear];
+  const multipliers = appMain.multipliers;
   const rateTableRows = [];
 
   document.querySelector('*[data-required-revenue]').innerHTML = `
@@ -38,22 +38,22 @@
   document.querySelector('*[data-rates]').innerHTML = rateTableRows.join('');
 
   // get data
-  chartData.getData()
+  appMain.getData()
     .then(results => {
       // filter by fiscal year
-      const data = chartData.filterFiscalYear(results[0].data, fiscalYear);
+      const data = appMain.filterFiscalYear(results[0].data, fiscalYear);
 
-      const labels = chartData.getMonthLabels(data);
+      const labels = appMain.getMonthLabels(data);
 
       // water revenue
-      const waterRevenueBase = chartData.getFieldData(data, 'waterRevenueBase');
-      const waterRevenueConsumption = chartData.getFieldData(data, 'waterRevenueConsumption');
-      const waterRevenueLoan = chartData.getFieldData(data, 'waterRevenueLoan');
+      const waterRevenueBase = appMain.getFieldData(data, 'waterRevenueBase');
+      const waterRevenueConsumption = appMain.getFieldData(data, 'waterRevenueConsumption');
+      const waterRevenueLoan = appMain.getFieldData(data, 'waterRevenueLoan');
 
       // sewer revenue
-      const sewerRevenueBase = chartData.getFieldData(data, 'sewerRevenueBase');
-      const sewerRevenueConsumption = chartData.getFieldData(data, 'sewerRevenueConsumption');
-      const sewerRevenueLoan = chartData.getFieldData(data, 'sewerRevenueLoan');
+      const sewerRevenueBase = appMain.getFieldData(data, 'sewerRevenueBase');
+      const sewerRevenueConsumption = appMain.getFieldData(data, 'sewerRevenueConsumption');
+      const sewerRevenueLoan = appMain.getFieldData(data, 'sewerRevenueLoan');
 
       // water and sewer projection vars and calcs
       const monthCount = data.length;
@@ -75,18 +75,18 @@
       });
 
       // water and sewer stats
-      const waterConsumption = chartData.getFieldData(data, 'waterConsumption', 1000);
-      const sewerConsumption = chartData.getFieldData(data, 'sewerConsumption', 1000);
+      const waterConsumption = appMain.getFieldData(data, 'waterConsumption', 1000);
+      const sewerConsumption = appMain.getFieldData(data, 'sewerConsumption', 1000);
 
-      const waterMultipliersCount = chartData.getFieldData(data, 'waterMultipliersCount');
-      const waterMultipliersRevenue = chartData.getFieldData(data, 'waterMultipliersRevenue');
-      const sewerMultipliersCount = chartData.getFieldData(data, 'sewerMultipliersCount');
-      const sewerMultipliersRevenue = chartData.getFieldData(data, 'sewerMultipliersRevenue');
+      const waterMultipliersCount = appMain.getFieldData(data, 'waterMultipliersCount');
+      const waterMultipliersRevenue = appMain.getFieldData(data, 'waterMultipliersRevenue');
+      const sewerMultipliersCount = appMain.getFieldData(data, 'sewerMultipliersCount');
+      const sewerMultipliersRevenue = appMain.getFieldData(data, 'sewerMultipliersRevenue');
 
-      const waterMultipliersCountSum = chartData.sumArray(waterMultipliersCount);
-      const waterMultipliersRevenueSum = chartData.sumArray(waterMultipliersRevenue);
-      const sewerMultipliersCountSum = chartData.sumArray(sewerMultipliersCount);
-      const sewerMultipliersRevenueSum = chartData.sumArray(sewerMultipliersRevenue);
+      const waterMultipliersCountSum = appMain.sumArray(waterMultipliersCount);
+      const waterMultipliersRevenueSum = appMain.sumArray(waterMultipliersRevenue);
+      const sewerMultipliersCountSum = appMain.sumArray(sewerMultipliersCount);
+      const sewerMultipliersRevenueSum = appMain.sumArray(sewerMultipliersRevenue);
 
       // water revenue chart
       new Chart(document.querySelector('canvas[data-chart-water-revenue]').getContext('2d'), {
@@ -125,13 +125,13 @@
           tooltips: {
             mode: 'index',
             callbacks: {
-              label: chartData.$tooltipLabel
+              label: appMain.$tooltipLabel
             }
           },
           scales: {
             yAxes: [{
               ticks: {
-                callback: chartData.$ticks
+                callback: appMain.$ticks
               }
             }]
           }
@@ -164,9 +164,9 @@
           }, {
             label: 'Billed To Date Revenue',
             data: [
-              chartData.sumField(data, 'waterRevenueBase'),
-              chartData.sumField(data, 'waterRevenueConsumption'),
-              chartData.sumField(data, 'waterRevenueLoan')
+              appMain.sumField(data, 'waterRevenueBase'),
+              appMain.sumField(data, 'waterRevenueConsumption'),
+              appMain.sumField(data, 'waterRevenueLoan')
             ],
             borderWidth: 1,
             borderColor: [
@@ -182,9 +182,9 @@
           }, {
             label: 'Projected Revenue',
             data: [
-              (chartData.sumField(data, 'waterRevenueBase') / monthCount * 12),
-              (chartData.sumField(data, 'waterRevenueConsumption') / monthCount * 12),
-              (chartData.sumField(data, 'waterRevenueLoan') / monthCount * 12)
+              (appMain.sumField(data, 'waterRevenueBase') / monthCount * 12),
+              (appMain.sumField(data, 'waterRevenueConsumption') / monthCount * 12),
+              (appMain.sumField(data, 'waterRevenueLoan') / monthCount * 12)
             ],
             borderWidth: 1,
             borderColor: [
@@ -208,14 +208,14 @@
           aspectRatio: 3,
           tooltips: {
             callbacks: {
-              label: chartData.$tooltipLabel
+              label: appMain.$tooltipLabel
             }
           },
           scales: {
             xAxes: [{
               ticks: {
                 min: 0,
-                callback: chartData.$ticks
+                callback: appMain.$ticks
               }
             }]
           }
@@ -229,27 +229,27 @@
           labels,
           datasets: [{
             label: 'Base Revenue',
-            data: chartData.subtractArrays(
-              chartData.accumulativeArray(waterRevenueBase, true),
-              chartData.valueAccumulativeArray(requiredRevenue.wBase, monthCount, true)
+            data: appMain.subtractArrays(
+              appMain.accumulativeArray(waterRevenueBase, true),
+              appMain.valueAccumulativeArray(requiredRevenue.wBase, monthCount, true)
             ),
             borderWidth: 1,
             borderColor: colors.blue,
             backgroundColor: color(colors.blue).alpha(0.5).rgbString()
           }, {
             label: 'Consumption Revenue',
-            data: chartData.subtractArrays(
-              chartData.accumulativeArray(waterRevenueConsumption, true),
-              chartData.valueAccumulativeArray(requiredRevenue.wCon, monthCount, true)
+            data: appMain.subtractArrays(
+              appMain.accumulativeArray(waterRevenueConsumption, true),
+              appMain.valueAccumulativeArray(requiredRevenue.wCon, monthCount, true)
             ),
             borderWidth: 1,
             borderColor: colors.green,
             backgroundColor: color(colors.green).alpha(0.5).rgbString()
           }, {
             label: 'Loan Revenue',
-            data: chartData.subtractArrays(
-              chartData.accumulativeArray(waterRevenueLoan, true),
-              chartData.valueAccumulativeArray(requiredRevenue.wLoan, monthCount, true)
+            data: appMain.subtractArrays(
+              appMain.accumulativeArray(waterRevenueLoan, true),
+              appMain.valueAccumulativeArray(requiredRevenue.wLoan, monthCount, true)
             ),
             borderWidth: 1,
             borderColor: colors.teal,
@@ -266,13 +266,13 @@
           tooltips: {
             mode: 'index',
             callbacks: {
-              label: chartData.$tooltipLabel
+              label: appMain.$tooltipLabel
             }
           },
           scales: {
             yAxes: [{
               ticks: {
-                callback: chartData.$ticks
+                callback: appMain.$ticks
               }
             }]
           }
@@ -339,7 +339,7 @@
       });
 
       document.querySelector('*[data-water-split-avg]')
-        .innerHTML = `${chartData.averageArray(waterBasePercentage).toFixed(1)}%/${chartData.averageArray(waterConsumptionPercentage).toFixed(1)}%`;
+        .innerHTML = `${appMain.averageArray(waterBasePercentage).toFixed(1)}%/${appMain.averageArray(waterConsumptionPercentage).toFixed(1)}%`;
 
       // water stats chart
       new Chart(document.querySelector('canvas[data-chart-water]').getContext('2d'), {
@@ -419,7 +419,7 @@
         .innerHTML = `${waterMultipliersRevenueSum.toFixed(2)} (${(waterMultipliersRevenueSum / monthCount).toFixed(2)}/month)`;
 
       document.querySelector('*[data-water-consumption]')
-        .innerHTML = `${(chartData.sumArray(waterConsumption) * 1000).toLocaleString()}`;
+        .innerHTML = `${(appMain.sumArray(waterConsumption) * 1000).toLocaleString()}`;
 
 
       // sewer revenue chart
@@ -459,13 +459,13 @@
           tooltips: {
             mode: 'index',
             callbacks: {
-              label: chartData.$tooltipLabel
+              label: appMain.$tooltipLabel
             }
           },
           scales: {
             yAxes: [{
               ticks: {
-                callback: chartData.$ticks
+                callback: appMain.$ticks
               }
             }]
           }
@@ -498,9 +498,9 @@
           }, {
             label: 'Billed To Date Revenue',
             data: [
-              chartData.sumField(data, 'sewerRevenueBase'),
-              chartData.sumField(data, 'sewerRevenueConsumption'),
-              chartData.sumField(data, 'sewerRevenueLoan')
+              appMain.sumField(data, 'sewerRevenueBase'),
+              appMain.sumField(data, 'sewerRevenueConsumption'),
+              appMain.sumField(data, 'sewerRevenueLoan')
             ],
             borderWidth: 1,
             borderColor: [
@@ -516,9 +516,9 @@
           }, {
             label: 'Projected Revenue',
             data: [
-              (chartData.sumField(data, 'sewerRevenueBase') / monthCount * 12),
-              (chartData.sumField(data, 'sewerRevenueConsumption') / monthCount * 12),
-              (chartData.sumField(data, 'sewerRevenueLoan') / monthCount * 12)
+              (appMain.sumField(data, 'sewerRevenueBase') / monthCount * 12),
+              (appMain.sumField(data, 'sewerRevenueConsumption') / monthCount * 12),
+              (appMain.sumField(data, 'sewerRevenueLoan') / monthCount * 12)
             ],
             borderWidth: 1,
             borderColor: [
@@ -542,14 +542,14 @@
           aspectRatio: 3,
           tooltips: {
             callbacks: {
-              label: chartData.$tooltipLabel
+              label: appMain.$tooltipLabel
             }
           },
           scales: {
             xAxes: [{
               ticks: {
                 min: 0,
-                callback: chartData.$ticks
+                callback: appMain.$ticks
               }
             }]
           }
@@ -563,27 +563,27 @@
           labels,
           datasets: [{
             label: 'Base Revenue',
-            data: chartData.subtractArrays(
-              chartData.accumulativeArray(sewerRevenueBase, true),
-              chartData.valueAccumulativeArray(requiredRevenue.sBase, monthCount, true)
+            data: appMain.subtractArrays(
+              appMain.accumulativeArray(sewerRevenueBase, true),
+              appMain.valueAccumulativeArray(requiredRevenue.sBase, monthCount, true)
             ),
             borderWidth: 1,
             borderColor: colors.red,
             backgroundColor: color(colors.red).alpha(0.5).rgbString()
           }, {
             label: 'Consumption Revenue',
-            data: chartData.subtractArrays(
-              chartData.accumulativeArray(sewerRevenueConsumption, true),
-              chartData.valueAccumulativeArray(requiredRevenue.sCon, monthCount, true)
+            data: appMain.subtractArrays(
+              appMain.accumulativeArray(sewerRevenueConsumption, true),
+              appMain.valueAccumulativeArray(requiredRevenue.sCon, monthCount, true)
             ),
             borderWidth: 1,
             borderColor: colors.orange,
             backgroundColor: color(colors.orange).alpha(0.5).rgbString()
           }, {
             label: 'Loan Revenue',
-            data: chartData.subtractArrays(
-              chartData.accumulativeArray(sewerRevenueLoan, true),
-              chartData.valueAccumulativeArray(requiredRevenue.sLoan, monthCount, true)
+            data: appMain.subtractArrays(
+              appMain.accumulativeArray(sewerRevenueLoan, true),
+              appMain.valueAccumulativeArray(requiredRevenue.sLoan, monthCount, true)
             ),
             borderWidth: 1,
             borderColor: colors.maroon,
@@ -600,13 +600,13 @@
           tooltips: {
             mode: 'index',
             callbacks: {
-              label: chartData.$tooltipLabel
+              label: appMain.$tooltipLabel
             }
           },
           scales: {
             yAxes: [{
               ticks: {
-                callback: chartData.$ticks
+                callback: appMain.$ticks
               }
             }]
           }
@@ -673,7 +673,7 @@
       });
 
       document.querySelector('*[data-sewer-split-avg]')
-        .innerHTML = `${chartData.averageArray(sewerBasePercentage).toFixed(1)}%/${chartData.averageArray(sewerConsumptionPercentage).toFixed(1)}%`;
+        .innerHTML = `${appMain.averageArray(sewerBasePercentage).toFixed(1)}%/${appMain.averageArray(sewerConsumptionPercentage).toFixed(1)}%`;
 
       // sewer stats chart
       new Chart(document.querySelector('canvas[data-chart-sewer]').getContext('2d'), {
@@ -684,7 +684,7 @@
             yAxisID: 'left-axis',
             type: 'line',
             label: 'Count Multipliers',
-            data: chartData.getFieldData(data, 'sewerMultipliersCount'),
+            data: appMain.getFieldData(data, 'sewerMultipliersCount'),
             borderWidth: 1,
             borderColor: colors.red,
             backgroundColor: color(colors.red).alpha(0.1).rgbString()
@@ -692,7 +692,7 @@
             yAxisID: 'left-axis',
             type: 'line',
             label: 'Revenue Multipliers',
-            data: chartData.getFieldData(data, 'sewerMultipliersRevenue'),
+            data: appMain.getFieldData(data, 'sewerMultipliersRevenue'),
             borderDash: [5, 5],
             borderWidth: 1,
             borderColor: colors.red,
@@ -752,8 +752,8 @@
         .innerHTML = `${sewerMultipliersRevenueSum.toFixed(2)} (${(sewerMultipliersRevenueSum / monthCount).toFixed(2)}/month)`;
 
       document.querySelector('*[data-sewer-consumption]')
-        .innerHTML = `${(chartData.sumArray(sewerConsumption) * 1000).toLocaleString()}`;
+        .innerHTML = `${(appMain.sumArray(sewerConsumption) * 1000).toLocaleString()}`;
 
     });
 
-}(this.document, this.chartData, this.Chart, this.ChartDataLabels));
+}(this.document, this.dataMain, this.Chart, this.ChartDataLabels));

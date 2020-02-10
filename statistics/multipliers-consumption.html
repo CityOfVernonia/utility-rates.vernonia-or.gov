@@ -9,7 +9,7 @@ description: Multiplier &amp; Consumption Statistics
 ---
 <h1>Multiplier &amp; Consumption Statistics</h1>
 
-<p>The following charts show multipliers and consumption by month for water and sewer, as well as a chart directly comparing water and sewer consumption.</p>
+<p>The following charts show multipliers and consumption by month for water and sewer, as well as a charts directly comparing water and sewer consumption, and yearly sewer consumption comparison.</p>
 
 <p><strong>Count Multipliers</strong> are the number of billed multipliers.</p>
 
@@ -25,5 +25,10 @@ description: Multiplier &amp; Consumption Statistics
 
 <canvas class="chart" data-chart-consumption></canvas>
 
-<script src="/js/charts-main.js"></script>
+<canvas class="chart" data-chart-scon></canvas>
+
+<p class="text-muted"><small><strong data-scon-total>0 (0 projected)</strong> gallons of sewer consumption for current sewer consumption year.</small></p>
+<p class="text-muted"><small><strong>Note:</strong> 2017 sewer consumption only includes 2017 revenue year data.</small></p>
+
+<script src="/js/app-main.js"></script>
 <script src="/statistics/multipliers-consumption.js"></script>

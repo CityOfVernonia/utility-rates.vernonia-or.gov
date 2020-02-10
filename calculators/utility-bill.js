@@ -1,18 +1,18 @@
 /**
  * Calculate a utility bill
  */
-(function (document, chartData, Chart, ChartDataLabels) {
+(function (document, dataMain, Chart, ChartDataLabels) {
 
   let chart;
 
-  const colors = chartData.colors;
+  const colors = appMain.colors;
 
-  const multipliers = chartData.multipliers.reduce((map, obj) => {
+  const multipliers = appMain.multipliers.reduce((map, obj) => {
     map[obj[0]] = [obj[2], obj[3]];
     return map;
   }, {});
 
-  const rates = chartData.rates[chartData.currentFiscalYear];
+  const rates = appMain.rates[appMain.currentFiscalYear];
 
   const form = document.querySelector('form[data-bill-calculator]');
 
@@ -124,4 +124,4 @@
 
   // submit form for default bill and chart
   document.querySelector('.calc-bill-submit').click();
-}(this.document, this.chartData, this.Chart, this.ChartDataLabels));
+}(this.document, this.dataMain, this.Chart, this.ChartDataLabels));

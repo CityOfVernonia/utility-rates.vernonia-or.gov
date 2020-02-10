@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<h1>Data</h1>
+
+<h2>Download</h2>
+
+<p>All data used by this site is available for download.</p>
+
+<p>
+  <a href="/csv/water-sewer-stats.csv" target="_blank" class="btn btn-primary">water-sewer-stats.csv</a>
+</p>
+
+<h2>Water Data Table</h2>
+
+<table class="table table-striped" data-table>
+  <thead class="thead-light">
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Fiscal Year</th>
+      <th>Water Consumption</th>
+      <th>Water Mm Count</th>
+      <th>Water Mm Revenue</th>
+      <th>Water Base Revenue</th>
+      <th>Water Consumption Revenue</th>
+      <th>Water Loan Revenue</th>
+    </tr>
+  </thead>
+  <tbody data-water-table></tbody>
+</table>
+
+<h2>Sewer Data Table</h2>
+
+<table class="table table-striped" data-table>
+  <thead class="thead-light">
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Fiscal Year</th>
+      <th>Sewer Consumption Year</th>
+      <th>Sewer Consumption</th>
+      <th>Sewer Mm Count</th>
+      <th>Sewer Mm Revenue</th>
+      <th>Sewer Base Revenue</th>
+      <th>Sewer Consumption Revenue</th>
+      <th>Sewer Loan Revenue</th>
+    </tr>
+  </thead>
+  <tbody data-sewer-table></tbody>
+</table>
+
+<script src="/js/app-main.js"></script>
+<script src="/data/data.js"></script>

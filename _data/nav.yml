@@ -28,3 +28,11 @@ items:
         url: "/statistics/sewer-services/"
       - page: "Meter EOL"
         url: "/statistics/meter-eol/"
+
+  - title: "Data"
+    id: "data"
+    subitems:
+      - page: "Data"
+        url: "/data/"
+      - page: "Rate Code Analyzer"
+        url: "/data/rate-codes/"

@@ -96,6 +96,15 @@ div[data-bill-results] {
   }
 }
 
+// data table
+table[data-table] {
+  min-height: 800px;
+  th {
+    align-items: center;
+    vertical-align: middle;
+  }
+}
+
 ////////////
 // footer //
 ////////////
