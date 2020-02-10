@@ -1,4 +1,4 @@
-(function (document, dataMain, Chart, ChartDataLabels) {
+(function (document, appMain, Chart, ChartDataLabels) {
   const fiscalYear = document.querySelector('h1[data-fiscal-year]').getAttribute('data-fiscal-year');
 
   // colors for charts
@@ -756,4 +756,4 @@
 
     });
 
-}(this.document, this.dataMain, this.Chart, this.ChartDataLabels));
+}(this.document, this.appMain, this.Chart, this.ChartDataLabels));

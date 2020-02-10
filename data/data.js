@@ -1,7 +1,7 @@
 /**
  * Creates data table
  */
-(function (document, dataMain, moment) {
+(function (document, appMain, moment) {
   const waterTable = document.querySelector('tbody[data-water-table]');
   const waterData = [];
 
@@ -51,4 +51,4 @@
 
     });
 
-}(this.document, this.dataMain, this.moment));
+}(this.document, this.appMain, this.moment));
