@@ -1,0 +1,27 @@
+---
+layout: default
+menu: false
+arcgis: true
+title: Meter Economic Optimal Life
+description: Economic optimal life of water meters.
+---
+<h1>Meter Economic Optimal Life</h1>
+
+<p>Meter EOL is determined when cost of use exceeds the cost per year. EOL is variable and changes with water and sewer consumption rates, the cost to purchase and install a new meter, and average 3/4" consumption. Cost of use is the amount of water and sewer consumption revenue lost yearly by the average meter as it looses accuracy over time. Accumulative cost starts with the cost to purchase and install a new meter, and aggregates the yearly cost of use. The cost per year is the accumulative cost divided by meter age.</p>
+
+<canvas class="chart" data-chart-eol></canvas>
+
+<p class="text-muted"><small data-eol-value><strong>0</strong> year old meter had surpassed it's economical optimal life with a water consumption rate of $0 per 1000, a sewer consumption rate of $0 per gallon, and a meter replacement cost of $0.</small></p>
+
+<h2>Meter Accuracy and Water/Sewer Cost of Use</h2>
+
+<canvas class="chart" data-chart-meter-accuracy></canvas>
+
+<h2>Meter Age</h2>
+
+<canvas class="chart" data-chart-meter-age></canvas>
+
+<p class="text-muted"><small><strong>Note:</strong> Meters with unknown age are shown as 40 years old.</small></p>
+
+<script src="/js/app-main.js"></script>
+<script src="/statistics/meter-eol.js"></script>
