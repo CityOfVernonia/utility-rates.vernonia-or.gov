@@ -15,6 +15,10 @@ highlighter: rouge
 
 markdown: kramdown
 
+github:
+  repository_url: https://github.com/CityOfVernonia/utility-rates.vernonia-or.gov
+  repository_name: utility-rates.vernonia-or.gov
+
 kramdown:
   input: GFM
   syntax_highlighter: rouge
