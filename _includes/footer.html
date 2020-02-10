@@ -6,6 +6,8 @@
       Copyright &copy; {{ "now" | date: "%Y" }} City of Vernonia
       <br>
       Made with <i class="fas fa-heart text-danger"></i> and <i class="fas fa-coffee"></i> in Vernonia, Oregon
+      <br>
+      build: <a href="{{ site.github.repository_url }}/commit/{{ site.github.build_revision }}" target="_blank" rel="noopener">{{ site.github.build_revision | slice: 0, 7 }}</a>
     </p>
   </div>
 </footer>
