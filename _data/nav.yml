@@ -35,4 +35,4 @@ items:
       - page: "Data"
         url: "/data/"
       - page: "Rate Code Analyzer"
-        url: "/data/rate-codes/"
+        url: "/data/rate-code-analyzer/"
