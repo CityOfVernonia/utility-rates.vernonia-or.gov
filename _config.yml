@@ -47,7 +47,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /images/social-card.jpg
+      image: /images/social-card.png
 
 include:
   - _headers
