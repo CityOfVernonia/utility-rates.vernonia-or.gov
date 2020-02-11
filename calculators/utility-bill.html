@@ -6,14 +6,14 @@ description: Calculate monthly utility bill.
 ---
 <h1 data-fiscal-year="2019">Utility Bill Calculator</h1>
 
-<p>Select meter size, enter monthly water and sewer consumption, and number of residential units to calculate monthly utility bill.</p>
+<p>Select meter size, enter monthly water and sewer consumption, and number of billable park units to calculate monthly utility bill.</p>
 
 <div class="row">
   <div class="col-sm-6 col-lg-4">
     <!-- form -->
     <form data-bill-calculator>
       <div class="form-group">
-        <label for="meterSize">Meter Size</label>
+        <label for="meterSize">Meter size</label>
         <select class="form-control" id="meterSize" name="size">
           <option value="0.75" selected>3/4"</option>
           <option value="1">1"</option>
@@ -24,17 +24,17 @@ description: Calculate monthly utility bill.
         </select>
       </div>
       <div class="form-group">
-        <label for="waterConsumption">Monthly Water Consumption</label>
+        <label for="waterConsumption">Monthly water consumption</label>
         <input type="number" class="form-control" id="waterConsumption" aria-describedby="waterConsumptionHelp" name="water" placeholder="Water consumption in gallons" value="4700" step="1" min="100" required>
         <small id="waterConsumptionHelp" class="form-text text-muted">3/4" meter customers average 4700 gallons of water per month over a year.</small>
       </div>
       <div class="form-group">
-        <label for="sewerConsumption">Monthly Sewer Consumption</label>
+        <label for="sewerConsumption">Monthly sewer consumption</label>
         <input type="number" class="form-control" id="sewerConsumption" aria-describedby="sewerConsumptionHelp" name="sewer" placeholder="Sewer consumption in gallons" value="4700" step="1" min="100" required>
         <small id="sewerConsumptionHelp" class="form-text text-muted">Winter average (Nov-Feb) water consumption.</small>
       </div>
       <div class="form-group">
-        <label for="parkUnits">Number of Billable Park Units</label>
+        <label for="parkUnits">Number of billable park units</label>
         <input type="number" class="form-control" id="parkUnits" aria-describedby="parkUnitsHelp" name="parkunits" placeholder="Number of billable park units" value="1" step="1" min="0" max="50" required>
         <small id="parkUnitsHelp" class="form-text text-muted">$2.00 parks fee per unit except gov't and non-profit.</small>
       </div>
