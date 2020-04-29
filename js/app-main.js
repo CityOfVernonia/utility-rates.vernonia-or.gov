@@ -320,7 +320,7 @@
 
 
   // services stats
-  const restUrl = 'https://gisportal.vernonia-or.gov/arcgis/rest/services/PublicUtilities/Public_Water/FeatureServer/52';
+  const restUrl = 'https://gisportal.vernonia-or.gov/arcgis/rest/services/Water/Water_Meters_Public/MapServer/0';
 
   am.getServicesData = (params) => {
     return arcgisRest.queryFeatures(Object.assign({
