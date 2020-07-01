@@ -6,6 +6,10 @@ charts: false
 ---
 <h1>City of Vernonia Utility Rates</h1>
 
+<p class="lead">
+  The entire City of Vernonia organization, including your elected officials, volunteer committee members, and public servants are committed to setting fair utility rates; and being completely open and transparent with <em>you the ratepayer</em> about your utility rates.
+</p>
+
 <h2>Utility Rate Philosophy</h2>
 
 <p>Provide our ratepayers with simple, fair and budget driven water and sewer utility rates.</p>
@@ -13,7 +17,7 @@ charts: false
 <ul class="fa-ul">
   <li><span class="fa-li"><i class="fas fa-landmark"></i></span>Simple to understand and administer.</li>
   <li><span class="fa-li"><i class="fas fa-users"></i></span>Fair for all ratepayers.</li>
-  <li><span class="fa-li"><i class="fas fa-dollar-sign"></i></span>Adjusted annually to the budget and latest statistics.</li>
+  <li><span class="fa-li"><i class="fas fa-dollar-sign"></i></span>Adjusted annually to the budget, and the latest customer and consumption statistics.</li>
 </ul>
 
 <h2>How Utility Rates Work</h2>
@@ -86,7 +90,15 @@ charts: false
 
 <h2>Current Rates</h2>
 
-{%- include current-rates.html -%}
+<table class="table table-striped" data-fiscal-year="2020">
+  <thead class="thead-light">
+    <tr><th>&nbsp;</th><th colspan="4" class="text-center">Water</th><th colspan="4" class="text-center">Sewer</th></tr>
+    <tr><th>&nbsp;</th><th>Multiplier</th><th>Base</th><th>Loan</th><th>Consumption</th><th>Multiplier</th><th>Base</th><th>Loan</th><th>Consumption</th></tr>
+  </thead>
+  <tbody data-rates></tbody>
+</table>
+<script src="/js/app-main.js"></script>
+<script src="/js/current-rates.js"></script>
 
 <h2>Key Dates &amp; Timeframes</h2>
 
@@ -111,8 +123,6 @@ charts: false
 <p>With the budget numbers, last year’s water/sewer statistics, and state of the current budget as the fiscal year winds down in hand, Staff calculates rates to present to Council for adoption.</p>
 
 <p>Council can also convene the ad hoc Utility Rate Review Committee to review the proposed rates, as well as make rate structure and other rate related recommendations to Council. The Utility Rate Review Committee played a key role reviewing and recommending some small but key changes to our rate structures in the last several years, which made our rates simpler and more fair to all ratepayers.</p>
-
-<p>The entire City organization, from your elected officials, to volunteer committee members and public servants, are committed to setting fair utility rates, and being open and transparent about them with you the ratepayer.</p>
 
 <p>You can learn more about how we calculate utility rates by checking out the <a href="/calculators/rates/">Rate Calculator</a>.</p>
 

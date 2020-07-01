@@ -33,7 +33,7 @@
     silver: '#dddddd'
   };
 
-  am.currentFiscalYear = '2019';
+  am.currentFiscalYear = '2020';
 
   am.currentSconYear = '2019';
 
@@ -49,6 +49,15 @@
 
   // rates
   am.rates = {
+    '2020': {
+      wBase: 29.50,
+      wCon: 1.80,
+      wLoan: 7.15,
+      sBase: 26.90,
+      sCon: 2.60,
+      sLoan: 19.50,
+      parks: 2.00
+    },
     '2019': {
       wBase: 29.50,
       wCon: 1.80,
@@ -80,6 +89,14 @@
 
   // required revenue by fiscal year
   am.requiredRevenue = {
+    '2020': {
+      wBase: 364210,
+      wCon: 108790,
+      wLoan: 87200,
+      sBase: 296800,
+      sCon: 127200,
+      sLoan: 227000
+    },
     '2019': {
       wBase: 373567,
       wCon: 111585,

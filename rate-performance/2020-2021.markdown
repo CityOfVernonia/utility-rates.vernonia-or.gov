@@ -1,0 +1,12 @@
+---
+layout: rate-performance
+permalink: /rate-performance/2020-2021/
+title: Fiscal Year 2020-2021 Rate Performance
+description: Fiscal Year 2020-2021 Rate Performance
+
+# rate performance page vars
+fiscal: 2020
+fiscalText: 2020-2021
+
+# waterAccumulativeNote: "The water base rate revenue for fiscal year 2019-2020 is expected to be approximately $15,000 short of required revenue due to a minor change in the budget after rates had been set."
+---
