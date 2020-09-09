@@ -10,8 +10,8 @@ items:
   - title: "Rate Performance"
     id: "rate-performance"
     subitems:
-      # - page: "Fiscal Year 2020-2021"
-      #   url: "/rate-performance/2020-2021/"
+      - page: "Fiscal Year 2020-2021"
+        url: "/rate-performance/2020-2021/"
       - page: "Fiscal Year 2019-2020"
         url: "/rate-performance/2019-2020/"
       - page: "Fiscal Year 2018-2019"
