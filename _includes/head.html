@@ -24,19 +24,19 @@
 
   <!-- charting libs (must load in head for inline scripts) -->
   {%- if page.charts != false -%}
-  <script src="/js/papaparse.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" integrity="sha384-hgC0yc+QMVhcTBNqkVKR6PRjtrYzFXY+6kgKAUXxy+uhu/DT+NORQ21+AMcECh43" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0" integrity="sha384-tBTUH+7QuzOjHWS7S0B93DphPyInt8kw90bDGxeCrJ5VWmWRgw4oK8n/9vykQQnN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js" integrity="sha256-Xjq9HM9n3XzT47n/NmSEaJUwPi7hme++D8mxHfSr+0Q=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js" integrity="sha384-CJyhAlbbRZX14Q8KxKBt0na1ad4KBs9PklAiNk2Efxs9sgimbIZm9kYLJQeNMUfM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js" integrity="sha256-3kSXcicezu2sKkkqQae/hgspQC+t6zkOA0rS7QtlSyE=" crossorigin="anonymous"></script>
   {%- endif -%}
 
   <!-- arcgis rest -->
   {%- if page.arcgis -%}
-  <script src="https://unpkg.com/@esri/arcgis-rest-request@2.8.0/dist/umd/request.umd.min.js" integrity="sha384-vydU/QCYeopeDjkMfn8wfT46Jh6SNQXnkQrce56KmNnVWw3fxQeHmJg9gq4BPBEN" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@2.8.0/dist/umd/feature-layer.umd.min.js" integrity="sha384-84v0G5+q5XZXXUmUkFZ2Ccj4foAQHwOFibPmHjIu7TL2QM6BsQDmUb3ly7zxJR6g" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@esri/arcgis-rest-request@2.17.0/dist/umd/request.umd.min.js" integrity="sha256-eWeErQOlp/MvaN0rstNTc7NNKOsttaf7ILZ+xqk2Z9E=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@esri/arcgis-rest-feature-layer@2.17.0/dist/umd/feature-layer.umd.min.js" integrity="sha256-XP5F5+6jDgjK4KTQgJ/up1CVDLYWGRQjrPAD+G4AzOc=" crossorigin="anonymous"></script>
   {%- endif -%}
 
   <!-- font awesome and main css -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css">
 </head>
