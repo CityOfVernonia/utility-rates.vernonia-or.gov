@@ -193,7 +193,7 @@
     waterRate: am.rates[am.currentFiscalYear].wCon,
     sewerRate: am.rates[am.currentFiscalYear].sCon,
     replacementCost: 245,
-    avgConsumption: 4.7
+    avgConsumption: 4.9
   };
 
   // fetch csv data and convert to json
