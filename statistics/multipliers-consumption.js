@@ -207,7 +207,8 @@
         colors.red,
         colors.blue,
         colors.green,
-        colors.yellow
+        colors.yellow,
+        colors.aqua,
       ];
 
       let currentSconYearTotal;
